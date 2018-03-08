@@ -11,4 +11,19 @@
   - [mkdir -p ~/tmp, Creating tmp dir]
   - [mkdir -p ~/.local/bin, Creating .local/bin]
   - [mkdir -p ~/.config, Creating .config]
-
+  - command: sudo ./pacapt/pacapt -Sy || true
+    description: Updating package database
+  - command: sudo ./pacapt/pacapt --noconfirm -S fish
+    description: Installing fish shell
+    stdin: true
+    stdout: true
+  - command: chsh -s $(which fish)
+    description: Setting fish as default shell
+    stdin: true
+    stdout: true
+  - ["curl -L https://get.oh-my.fish > install_oh_my_fish", Getting Oh My Fish installer]
+  - command: fish install_oh_my_fish --noninteractive || true
+    description: Installing Oh My Fish
+    stdout: true
+  - ["curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher", Installing fisherman]
+  - ["curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash", Installing pyenv]
