@@ -6,6 +6,10 @@
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
+  - command: sudo ./pacapt/pacapt -Sy || true
+    description: Updating package database
+    stdin: true
+    stdout: true
 
   # Create directories
   - [mkdir -p ~/src/github.com, Creating github.com dir]
@@ -16,8 +20,6 @@
   - [mkdir -p ~/.config, Creating .config]
 
   # Install fish shell
-  - command: sudo ./pacapt/pacapt -Sy || true
-    description: Updating package database
   - command: sudo ./pacapt/pacapt --noconfirm -S fish
     description: Installing fish shell
     stdin: true
