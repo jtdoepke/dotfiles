@@ -5,6 +5,7 @@
     ~/.tmux.conf: tmux.conf
 
 - shell:
+  - [git submodule update --init --recursive, Installing submodules]
   - [mkdir -p ~/src/github.com, Creating github.com dir]
   - [mkdir -p ~/src/gitlab.com, Creating gitlab.com dir]
   - [mkdir -p ~/src/bitbucket.org, Creating bitbucket.org dir]
