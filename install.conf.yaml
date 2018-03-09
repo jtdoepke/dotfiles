@@ -6,12 +6,16 @@
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
+
+  # Create directories
   - [mkdir -p ~/src/github.com, Creating github.com dir]
   - [mkdir -p ~/src/gitlab.com, Creating gitlab.com dir]
   - [mkdir -p ~/src/bitbucket.org, Creating bitbucket.org dir]
   - [mkdir -p ~/tmp, Creating tmp dir]
   - [mkdir -p ~/.local/bin, Creating .local/bin]
   - [mkdir -p ~/.config, Creating .config]
+
+  # Install fish shell
   - command: sudo ./pacapt/pacapt -Sy || true
     description: Updating package database
   - command: sudo ./pacapt/pacapt --noconfirm -S fish
