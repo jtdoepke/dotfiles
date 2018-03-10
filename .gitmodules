@@ -1,6 +1,8 @@
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
-[submodule "pacapt"]
-	path = pacapt
-	url = git@github.com:icy/pacapt.git
+	branch = master
+[submodule "dotbot-pacapt"]
+	path = dotbot-pacapt
+	url = https://github.com/jtdoepke/dotbot-pacapt
+	branch = master
