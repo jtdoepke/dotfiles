@@ -74,7 +74,6 @@
   - ["curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher", Installing fisherman]
   - [fish -c 'fisher install done', "Installing fisher plugin: done"]
   - [fish -c 'fisher install edc/bass', "Installing fisher plugin: edc/bass"]
-  - [fish -c 'fisher install fzf', "Installing fisher plugin: fzf"]
   - [fish -c 'fisher install omf/proxy', "Installing fisher plugin: omf/proxy"]
   - [fish -c 'fisher install omf/thefuck', "Installing fisher plugin: omf/thefuck"]
   - [fish -c 'fisher install pyenv', "Installing fisher plugin: pyenv"]
