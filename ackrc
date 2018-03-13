@@ -1,0 +1,11 @@
+--ignore-dir=.idea/
+--ignore-dir=node_modules/
+--ignore-dir=.terraform/
+--ignore-dir=.venv/
+--ignore-dir=venv/
+--ignore-dir=.git/
+--ignore-dir=.tox/
+--ignore-dir=.svn/
+
+--type-set=cython=.pyx,pxd
+

@@ -3,6 +3,7 @@
 - link:
     ~/.gitconfig: gitconfig
     ~/.tmux.conf: tmux.conf
+    ~/.ackrc: ackrc
 
 - pacapt:
   - fish
