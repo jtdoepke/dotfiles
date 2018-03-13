@@ -5,14 +5,14 @@
     ~/.tmux.conf: tmux.conf
 
 - pacapt:
-  # Can just list packages that have a common name across package managers.
   - fish
   - git
   - wget
   - curl
   - bzip2
+  - thefuck
 
-  # Or list packages together as a reminder that they are equivalent.
+  # Python dependencies
   - ubuntu: build-essential
     fedora:
     - make
