@@ -86,3 +86,17 @@
   - [pyenv install 2.7.14, Installing Python 2.7]
   - [pyenv install 3.6.4, Installing Python 3.6]
   - [pyenv global 3.6.4 2.7.14 system, Setting prefered Python version]
+
+  # Python command line tools
+  - ["curl https://raw.githubusercontent.com/mitsuhiko/pipsi/master/get-pipsi.py | python", Installing pipsi]
+  - [pipsi install --python=python3.6 pipenv, Installing pipenv]
+  - [pipsi install --python=python3.6 borgbackup, Installing borgbackup]
+  - [pipsi install --python=python3.6 cookiecutter, Installing cookiecutter]
+  - [pipsi install --python=python3.6 flake8, Installing flake8]
+  - ["~/.local/venvs/flake8/bin/pip install -U flake8-isort flake8-docstring", Adding flake8 pluggins]
+  - [pipsi install --python=python3.6 howdoi, Installing howdoi]
+  - [pipsi install --python=python3.6 isort, Installing isort]
+  - [pipsi install --python=python3.6 jrnl, Installing jrnl]
+  - [pipsi install --python=python3.6 magic-wormhole, Installing magic-wormhole]
+  - [pipsi install --python=python3.6 pre-commit, Installing pre-commit]
+  - [pipsi install --python=python3.6 unp, Installing unp]
