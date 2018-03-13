@@ -61,18 +61,22 @@
   - [mkdir -p ~/.local/bin, Creating .local/bin]
   - [mkdir -p ~/.config, Creating .config]
 
-  # Install fish shell
-  - command: sudo ./pacapt/pacapt --noconfirm -S fish
-    description: Installing fish shell
-    stdin: true
-    stdout: true
   - command: chsh -s $(which fish)
     description: Setting fish as default shell
     stdin: true
     stdout: true
+
+  # Install fish plugins
   - ["curl -L https://get.oh-my.fish > install_oh_my_fish", Getting Oh My Fish installer]
   - command: fish install_oh_my_fish --noninteractive || true
     description: Installing Oh My Fish
     stdout: true
   - ["curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher", Installing fisherman]
-  - ["curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash", Installing pyenv]
+  - [fish -c 'fisher install done', "Installing fisher plugin: done"]
+  - [fish -c 'fisher install edc/bass', "Installing fisher plugin: edc/bass"]
+  - [fish -c 'fisher install fzf', "Installing fisher plugin: fzf"]
+  - [fish -c 'fisher install omf/proxy', "Installing fisher plugin: omf/proxy"]
+  - [fish -c 'fisher install omf/thefuck', "Installing fisher plugin: omf/thefuck"]
+  - [fish -c 'fisher install pyenv', "Installing fisher plugin: pyenv"]
+  - [fish -c 'fisher install z', "Installing fisher plugin: z"]
+  - [fish -c 'fisher install laughedelic/pisces', "Installing fisher plugin: laughedelic/pisces"]
