@@ -80,3 +80,9 @@
   - [fish -c 'fisher install pyenv', "Installing fisher plugin: pyenv"]
   - [fish -c 'fisher install z', "Installing fisher plugin: z"]
   - [fish -c 'fisher install laughedelic/pisces', "Installing fisher plugin: laughedelic/pisces"]
+
+  # Install pyenv and Python
+  - ["curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash", Installing pyenv]
+  - [pyenv install 2.7.14, Installing Python 2.7]
+  - [pyenv install 3.6.4, Installing Python 3.6]
+  - [pyenv global 3.6.4 2.7.14 system, Setting prefered Python version]
