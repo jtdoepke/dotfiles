@@ -7,6 +7,7 @@
 [push]
 	# Push only the current branch, not all branches.
 	default = simple
+	followTags = true
 
 [pull]
 	# Apply your recent changes to the latest commit from the remote.
