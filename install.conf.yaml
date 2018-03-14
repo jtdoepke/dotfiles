@@ -107,4 +107,5 @@
   - [pipsi install --python=python3.6 jrnl, Installing jrnl]
   - [pipsi install --python=python3.6 magic-wormhole, Installing magic-wormhole]
   - [pipsi install --python=python3.6 pre-commit, Installing pre-commit]
-  - [pipsi install --python=python3.6 unp, Installing unp]
+  # unp doesn't work in Python 3 yet.
+  - [pipsi install --python=python2.7 unp, Installing unp]
