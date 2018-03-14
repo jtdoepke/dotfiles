@@ -12,6 +12,7 @@
   - curl
   - bzip2
   - thefuck
+  - httpie
 
   # Python dependencies
   - ubuntu: build-essential
