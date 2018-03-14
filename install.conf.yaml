@@ -4,6 +4,7 @@
     ~/.gitconfig: gitconfig
     ~/.tmux.conf: tmux.conf
     ~/.ackrc: ackrc
+    ~/.config/fish/config.fish: fish/config.fish
 
 - pacapt:
   - fish
