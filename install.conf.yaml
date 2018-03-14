@@ -84,6 +84,9 @@
   - [fish -c 'fisher install z', "Installing fisher plugin: z"]
   - [fish -c 'fisher install laughedelic/pisces', "Installing fisher plugin: laughedelic/pisces"]
 
+  # Install neovim
+  - ["curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage > ~/.local/bin/nvim && chmod +x ~/.local/bin/nvim", Install neovim]
+
   # Install pyenv and Python
   - ["curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash", Installing pyenv]
   - [pyenv install 2.7.14, Installing Python 2.7]
