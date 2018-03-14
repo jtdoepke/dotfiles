@@ -10,6 +10,7 @@
 - pacapt:
   - fish
   - git
+  - git-svn
   - wget
   - curl
   - bzip2
