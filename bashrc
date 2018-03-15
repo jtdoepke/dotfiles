@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
-# Path to pyenv
+# Pyenv
 export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # Local bin
 export PATH="$HOME/.local/bin:$PATH"
