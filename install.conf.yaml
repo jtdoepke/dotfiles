@@ -4,11 +4,12 @@
   - [mkdir -p ~/.config/fish, Make fish config dir]
 
 - link:
+    ~/.bashrc: bashrc
+    ~/.config/fish/config.fish: fish/config.fish
     ~/.gitconfig: gitconfig
     ~/.tmux.conf: tmux.conf
     ~/.ackrc: ackrc
     ~/.vimrc: vimrc
-    ~/.config/fish/config.fish: fish/config.fish
     ~/.config/thefuck: thefuck
 
 - pacapt:
