@@ -21,6 +21,7 @@
   - thefuck
   - httpie
   - golang
+  - tmux
 
   # Python dependencies
   - ubuntu: build-essential
