@@ -20,3 +20,13 @@ set -x PATH "$GOPATH/bin" $PATH
 # Aliases
 alias vim=nvim
 
+# VSCode proxy settings alias
+if type -q code
+	function code
+		if test -n "$http_proxy"
+			command code --proxy-server="$proxy_host" $argv;
+		else
+			command code $argv;
+		end
+	end
+end
