@@ -1,3 +1,4 @@
+#!/usr/bin/env fish
 # Path to pyenv
 set -x PATH "$HOME/.pyenv/bin" $PATH
 
