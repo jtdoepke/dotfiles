@@ -68,6 +68,7 @@
   - [mkdir -p ~/src/github.com, Creating github.com dir]
   - [mkdir -p ~/src/gitlab.com, Creating gitlab.com dir]
   - [mkdir -p ~/src/bitbucket.org, Creating bitbucket.org dir]
+  - [mkdir -p ~/bin, Creating bin dir]
   - [mkdir -p ~/tmp, Creating tmp dir]
   - [mkdir -p ~/.local/bin, Creating .local/bin]
   - [mkdir -p ~/.config, Creating .config]
