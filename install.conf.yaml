@@ -1,5 +1,8 @@
 - clean: ['~']
 
+- shell:
+  - [mkdir -p ~/.config/fish, Make fish config dir]
+
 - link:
     ~/.gitconfig: gitconfig
     ~/.tmux.conf: tmux.conf
