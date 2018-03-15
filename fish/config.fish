@@ -1,3 +1,6 @@
+# Path to pyenv
+set -x PATH "$HOME/.pyenv/bin" $PATH
+
 # Path to Oh My Fish install.
 set -q XDG_DATA_HOME
   and set -gx OMF_PATH "$XDG_DATA_HOME/omf"
