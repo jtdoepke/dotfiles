@@ -24,6 +24,11 @@
   - golang
   - tmux
 
+  - ubuntu: virtualenv
+    fedora:
+      - python2-virtualenv
+      - python3-virtualenv
+
   # Python dependencies
   - ubuntu: build-essential
     fedora:
