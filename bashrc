@@ -14,6 +14,13 @@ export PATH="$HOME/.local/bin:$PATH"
 export GOPATH="$HOME"
 export PATH="$GOPATH/bin:$PATH"
 
+# Editor
+export EDITOR=vim
+
+# Pipenv
+export PIPENV_VENV_IN_PROJECT=1
+export PIPENV_DEFAULT_PYTHON_VERSION=3.6
+
 # Aliases
 alias vim=nvim
 
