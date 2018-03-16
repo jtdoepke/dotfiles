@@ -17,6 +17,9 @@ set -x PATH "$HOME/.local/bin" $PATH
 set -x GOPATH $HOME
 set -x PATH "$GOPATH/bin" $PATH
 
+# Editor
+set -x EDITOR vim
+
 # Aliases
 alias vim=nvim
 
