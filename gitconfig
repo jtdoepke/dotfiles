@@ -20,6 +20,7 @@
 [core]
 	# Convert CRLF to LF on commit.
 	autocrlf = input
+	excludesfile = ~/.gitignore_global
 
 [alias]
 	# Short command aliases

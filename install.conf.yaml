@@ -12,6 +12,7 @@
     ~/.bashrc: bashrc
     ~/.config/fish/config.fish: fish/config.fish
     ~/.gitconfig: gitconfig
+    ~/.gitignore_global: gitignore
     ~/.tmux.conf: tmux.conf
     ~/.ackrc: ackrc
     ~/.vimrc: vimrc
