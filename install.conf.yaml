@@ -2,6 +2,11 @@
 
 - shell:
   - [mkdir -p ~/.config/fish, Make fish config dir]
+  - command: sudo add-apt-repository ppa:fish-shell/release-2
+    description: Add fish repo
+    stdin: true
+    stdout: true
+    stderr: true
 
 - link:
     ~/.bashrc: bashrc
