@@ -80,6 +80,9 @@
     stdout: true
     stderr: true
 
+  - [git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf, Clone fzf]
+  - [~/.fzf/install --bin, Install fzf]
+
   # Install fish plugins
   - ["curl -L https://get.oh-my.fish > install_oh_my_fish", Getting Oh My Fish installer]
   - command: fish install_oh_my_fish --noninteractive || true
@@ -92,6 +95,7 @@
   - [fish -c 'fisher install omf/thefuck', "Installing fisher plugin: omf/thefuck"]
   - [fish -c 'fisher install pyenv', "Installing fisher plugin: pyenv"]
   - [fish -c 'fisher install z', "Installing fisher plugin: z"]
+  - [fish -c 'fisher install fzf', "Installing fisher plugin: fzf"]
   - [fish -c 'fisher install laughedelic/pisces', "Installing fisher plugin: laughedelic/pisces"]
 
   # Install neovim
