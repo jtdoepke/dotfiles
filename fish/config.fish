@@ -20,6 +20,10 @@ set -x PATH "$GOPATH/bin" $PATH
 # Editor
 set -x EDITOR vim
 
+# Pipenv
+set -x PIPENV_VENV_IN_PROJECT 1
+set -x PIPENV_DEFAULT_PYTHON_VERSION 3.6
+
 # Aliases
 alias vim=nvim
 
