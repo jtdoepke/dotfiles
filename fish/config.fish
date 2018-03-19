@@ -18,7 +18,7 @@ set -x GOPATH $HOME
 set -x PATH "$GOPATH/bin" $PATH
 
 # Editor
-set -x EDITOR vim
+set -x EDITOR nvim
 
 # Pipenv
 set -x PIPENV_VENV_IN_PROJECT 1
