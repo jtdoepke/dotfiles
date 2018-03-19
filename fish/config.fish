@@ -1,6 +1,13 @@
 #!/usr/bin/env fish
+
+function __add_to_PATH -a new_path -d "Insert a dir at the beginning of PATH if not already present.";
+        if not contains $new_path $PATH
+                set -x PATH $new_path $PATH;
+        end
+end
+
 # Path to pyenv
-set -x PATH "$HOME/.pyenv/bin" $PATH
+__add_to_PATH "$HOME/.pyenv/bin"
 
 # Path to Oh My Fish install.
 set -q XDG_DATA_HOME
@@ -11,11 +18,11 @@ set -q XDG_DATA_HOME
 source $OMF_PATH/init.fish
 
 # Local bin
-set -x PATH "$HOME/.local/bin" $PATH
+__add_to_PATH "$HOME/.local/bin"
 
 # Golang
 set -x GOPATH $HOME
-set -x PATH "$GOPATH/bin" $PATH
+__add_to_PATH "$GOPATH/bin"
 
 # Editor
 set -x EDITOR nvim
