@@ -90,7 +90,7 @@
     stdout: true
     stderr: true
 
-  - [git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf, Clone fzf]
+  - ["git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf", Clone fzf]
   - [~/.fzf/install --bin, Install fzf]
 
   # Install fish plugins
