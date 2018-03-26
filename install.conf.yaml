@@ -1,7 +1,7 @@
 - clean: ['~']
 
 - shell:
-  - [mkdir -p ~/.config/fish, Make fish config dir]
+  - [mkdir -p ~/.config/fish/conf.d, Make fish config dir]
   - command: sudo add-apt-repository ppa:fish-shell/release-2
     description: Add fish repo
     stdin: true
@@ -11,6 +11,7 @@
 - link:
     ~/.bashrc: bashrc
     ~/.config/fish/config.fish: fish/config.fish
+    ~/.config/fish/conf.d/000-init.fish: fish/conf.d/000-init.fish
     ~/.gitconfig: gitconfig
     ~/.gitignore_global: gitignore
     ~/.tmux.conf: tmux.conf
