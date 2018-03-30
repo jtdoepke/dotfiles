@@ -17,7 +17,7 @@
     ~/.tmux.conf: tmux.conf
     ~/.ackrc: ackrc
     ~/.vimrc: vimrc
-    ~/.config/thefuck: thefuck
+    ~/.config/the_fuck: thefuck
 
 - pacapt:
   - fish
