@@ -115,8 +115,8 @@
   # Install pyenv and Python
   - ["curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash", Installing pyenv]
   - [pyenv install -s 2.7.14, Installing Python 2.7]
-  - [pyenv install -s 3.6.4, Installing Python 3.6]
-  - [pyenv global 3.6.4 2.7.14 system, Setting prefered Python version]
+  - [pyenv install -s 3.6.5, Installing Python 3.6]
+  - [pyenv global 3.6.5 2.7.14 system, Setting prefered Python version]
 
   # Python command line tools
   - ["curl https://raw.githubusercontent.com/mitsuhiko/pipsi/master/get-pipsi.py | python", Installing pipsi]
