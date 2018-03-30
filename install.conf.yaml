@@ -124,7 +124,7 @@
   - [pipsi install --python=python3.6 borgbackup, Installing borgbackup]
   - [pipsi install --python=python3.6 cookiecutter, Installing cookiecutter]
   - [pipsi install --python=python3.6 flake8, Installing flake8]
-  - ["~/.local/venvs/flake8/bin/pip install -U flake8-isort flake8-docstring", Adding flake8 pluggins]
+  - ["~/.local/venvs/flake8/bin/pip install -U flake8-isort flake8-docstrings", Adding flake8 pluggins]
   - [pipsi install --python=python3.6 howdoi, Installing howdoi]
   - [pipsi install --python=python3.6 isort, Installing isort]
   - [pipsi install --python=python3.6 jrnl, Installing jrnl]
