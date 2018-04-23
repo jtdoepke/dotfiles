@@ -1,0 +1,4 @@
+git_global_gitignore_path: "~/.gitignore"
+git_required_vars:
+  - git_name
+  - git_email

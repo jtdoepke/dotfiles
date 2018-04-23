@@ -1,0 +1,95 @@
+---
+- name: Check required variables
+  fail: msg="Variable '{{ item }}' is not defined"
+  when: item not in vars
+  loop: "{{ git_required_vars }}"
+
+- name: Install git
+  become: yes
+  package: name=git state=present
+
+- name: Install global gitignore
+  file: src="{{ role_path }}/files/gitignore" dest="{{ git_global_gitignore_path }}" state=link
+
+- name: Set global gitignore setting
+  git_config: name="core.excludesfile" value="{{ git_global_gitignore_path }}" scope=global
+
+- name: Set git user settings
+  git_config: name="user.{{ item.name }}" value="{{ item.value }}" scope=global
+  loop:
+      - { name: name,  value: "{{ git_name }}" }
+      - { name: email, value: "{{ git_email }}" }
+
+- name: Set git push settings
+  git_config: name="push.{{ item.name }}" value="{{ item.value }}" scope=global
+  loop:
+      - { name: default,    value: simple }
+      - { name: followTags, value: "true" }
+
+- name: Set git pull settings
+  git_config: name="pull.{{ item.name }}" value="{{ item.value }}" scope=global
+  loop:
+      - { name: rebase, value: "true" }
+
+- name: Set git rebase settings
+  git_config: name="rebase.{{ item.name }}" value="{{ item.value }}" scope=global
+  loop:
+      - { name: autostash, value: "true" }
+
+- name: Set git core settings
+  git_config: name="core.{{ item.name }}" value="{{ item.value }}" scope=global
+  loop:
+      - { name: autocrlf, value: "input" }
+
+- name: Set git alias settings
+  git_config: name="alias.{{ item.name }}" value="{{ item.value }}" scope=global
+  loop:
+    # Short command aliases
+    - { name: "st",  value: "status" }
+    - { name: "co",  value: "checkout" }
+    - { name: "cob", value: "checkout -b" }               # Start a new branch from the current one and check it out.
+    - { name: "a",   value: "add --patch" }               # Interactively add changes in any currently tracked files.
+    - { name: "n",   value: "add --intent-to-add" }       # Start tracking a file (without adding its contents).
+    - { name: "an",  value: '!git n "$@" && git a "$@"' } # Start tracking a file and interactively add its contents.
+    - { name: "ci",  value: "commit" }
+    - { name: "rb",  value: "rebase" }
+    - { name: "rbi", value: "rebase --interactive" }
+    - { name: "b",   value: "branch" }
+    - { name: "bs",  value: "!git branches" }
+
+    # Pretty branch log
+    - { name: "lg1", value: 'log --graph --abbrev-commit --decorate --format=format:"%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)" --all' }
+    - { name: "lg2", value: 'log --graph --abbrev-commit --decorate --format=format:"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)" --all' }
+    - { name: "lg",  value: '!git lg2' }
+
+    # Occationally helpful
+    - { name: "branches", value: show-branch -a --list }
+    - { name: "cleanup",  value: '!for remote in $(git remote); do git remote prune $remote; done && git gc && git clean -dfx && git stash clear' }
+    - { name: "unadd",    value: 'reset HEAD' }
+    - { name: "unstash",  value: '!git stash apply && git stash clear' }
+
+- name: Install git-lfs
+  become: yes
+  package: name=git-lfs state=present
+
+- name: Set git-lfs filter settings
+  git_config: name="filter.lfs.{{ item.name }}" value="{{ item.value }}" scope=global
+  loop:
+    - { name: clean, value: git-lfs clean -- %f }
+    - { name: smudge, value: git-lfs smudge -- %f }
+    - { name: process, value: git-lfs filter-process }
+    - { name: required, value: "true" }
+
+- name: Set git GPG signing key
+  git_config:
+    name: user.signingkey
+    value: "{{ git_gpg }}"
+    scope: global
+  when: git_gpg is defined
+
+- name: Set automatic git GPG signing
+  git_config:
+    name: commit.gpgsign
+    value: "{{ git_gpg|bool }}"
+    scope: global
+  when: git_gpg is defined
