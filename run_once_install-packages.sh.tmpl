@@ -1,0 +1,41 @@
+{{ if eq .chezmoi.id "ubuntu" -}}
+#!/bin/sh
+
+sudo apt-get update -y
+sudo apt-get install -y software-properties-common dkms kmod ca-certificates curl gnupg-agent apt-transport-https
+sudo apt-get remove -y docker docker-engine docker.io containerd runc
+
+# Add docker-ce repository
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -y -
+sudo add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+sudo apt-get update -y
+sudo apt-get install -y \
+	build-essential make automake autoconf \
+	unattended-upgrades \
+	gnome-tweaks \
+	vim neovim \
+	subversion git git-lfs git-crypt git-svn git-extras git-email \
+	docker-ce docker-ce-cli containerd.io \
+	zip gzip bzip2 p7zip-full tar unzip xz-utils \
+	vlc asciinema audacity gimp peek \
+	gawk wget ufw \
+	autossh croc magic-wormhole httpie jq mosh openssh-client pass ranger rclone rsync shellcheck tmux \
+	python python-pip python-virtualenv \
+	python3 python3-pip python3-virtualenv
+
+sudo snap install bw bitwarden spotify
+sudo snap install --classic code go skype microk8s slack
+
+# Install asdf-vm
+sudo apt-get install -y \
+	automake autoconf libreadline-dev \
+	libncurses-dev libssl-dev libyaml-dev \
+	libxslt-dev libffi-dev libtool unixodbc-dev \
+	unzip curl
+if [ ! -d ~/.asdf ]; then
+	git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+fi
+cd ~/.asdf
+git checkout "$(git describe --abbrev=0 --tags)"
+{{ end -}}
