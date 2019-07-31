@@ -1,0 +1,73 @@
+[user]
+	name = {{ .name }}
+	email = {{ .email }}
+	signingkey = {{ .gpg_fingerprint }}
+
+[url "ssh://git@gitlab.com/"]
+    insteadOf = https://gitlab.com/
+
+[url "ssh://git@github.com/"]
+    insteadOf = https://github.com/
+
+[commit]
+	gpgsign = true
+
+[push]
+	# Push only the current branch, not all branches.
+	default = simple
+	followTags = true
+
+[pull]
+	# Apply your recent changes to the latest commit from the remote.
+	rebase = true
+
+[rebase]
+	# Automatically stash and unstash any modified files while rebasing.
+	autostash = true
+
+[core]
+	# Convert CRLF to LF on commit.
+	autocrlf = input
+	excludesfile = ~/.config/git/ignore
+
+[alias]
+	# Short command aliases
+	st = status
+	co = checkout
+	cob = checkout -b  # Start a new branch from the current one and check it out.
+	a = add --patch  # Interactively add changes in any currently tracked files.
+	n = add --intent-to-add  # Start tracking a file (without adding its contents).
+	an = !git n "$@" && git a "$@"  # Start tracking a file and interactively add its contents.
+	ci = commit
+	rb = rebase
+	rbi = rebase --interactive
+	rbc = "!f() { git rebase --interactive $1 --onto $1...; }; f" # Clean up branch without changing mergebase.
+	b = branch
+	bs = !git branches
+
+	# Pretty branch log
+	lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+	lg = !"git lg2"
+
+	# Occationally helpful
+	branches = show-branch -a --list
+	cleanup = "!for remote in $(git remote); do git remote prune $remote; done && git gc && git clean -dfx && git stash clear"
+	unadd = reset HEAD
+	unstash = !git stash apply && git stash clear
+	exec = "!exec "
+	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
+	prune-merged = "!f() { git branch --merged | egrep -v \"(^\\*|${1:-master})\" | xargs -r git branch -d; }; f"
+	conflicts = diff --name-only --diff-filter=U
+	latest-branch-commits = for-each-ref --sort=-committerdate refs/remotes/origin/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+	ignoreio = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
+
+[tag]
+	forceSignAnnotated = true
+	annotated = true
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

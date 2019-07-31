@@ -1,0 +1,10 @@
+{{ $email := promptString "email" -}}
+{{ $gpg_fingerprint := "55CFB9ADF1922C48DB9BC520FF0C0E1C4B5140E6" -}}
+[data]
+	name = "Jaye Doepke"
+	email = "{{ $email }}"
+	gpg_fingerprint = "{{ $gpg_fingerprint }}"
+
+[gpg]
+	recipient = "{{ $gpg_fingerprint }}"
+	symmetric = false
