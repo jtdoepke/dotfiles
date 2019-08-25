@@ -1,4 +1,4 @@
-{{ if eq .chezmoi.id "ubuntu" -}}
+{{ if eq .chezmoi.osRelease.id "ubuntu" -}}
 #!/bin/sh
 
 sudo apt-get update -y
