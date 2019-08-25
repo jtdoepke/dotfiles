@@ -1,0 +1,16 @@
+[distutils]
+index-servers=
+    testpypi
+    pypi
+
+{{ if eq .email "jdoepke@mintel.com" -}}
+[pypi]
+repository = https://upload.pypi.org/legacy/
+username = {{ (bitwarden "item" "bc68e282-5aa5-479b-9ecf-aaa800e30d19").login.username }}
+password = {{ (bitwarden "item" "bc68e282-5aa5-479b-9ecf-aaa800e30d19").login.password }}
+
+[testpypi]
+repository = https://test.pypi.org/legacy/
+username = {{ (bitwarden "item" "5017956a-975f-4c24-9143-aaa800e342e8").login.username }}
+password = {{ (bitwarden "item" "5017956a-975f-4c24-9143-aaa800e342e8").login.password }}
+{{ end -}}
