@@ -1,0 +1,25 @@
+{{ if eq .chezmoi.osRelease.id "ubuntu" -}}
+#!/bin/sh
+
+# Install fish-shell.
+sudo apt-add-repository ppa:fish-shell/release-3
+sudo apt-get update -y
+sudo apt-get install fish
+
+# Install fisher plugins.
+fish -c '
+fisher self-update;
+fisher add 0rax/fish-bd;
+fisher add edc/bass;
+fisher add fisherman/getopts;
+fisher add fisherman/z;
+fisher add jethrokuan/fzf;
+fisher add laughedelic/pisces;
+fisher add matchai/spacefish;
+fisher add oh-my-fish/plugin-thefuck;
+fisher add spentacular/asdf-fish;
+'
+
+# Set default shell to fish.
+sudo chsh -s "$(which fish)" "{{ .chezmoi.username }}"
+{{ end -}}
