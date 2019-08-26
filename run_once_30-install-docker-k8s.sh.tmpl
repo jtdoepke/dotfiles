@@ -1,0 +1,14 @@
+{{ if eq .chezmoi.osRelease.idLike "debian" -}}
+#!/bin/sh
+
+sudo apt-get install -y software-properties-common dkms kmod ca-certificates curl gnupg-agent apt-transport-https
+sudo apt-get remove -y docker docker-engine docker.io containerd runc
+
+# Add docker-ce repository
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -y -
+sudo add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+sudo apt-get update
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+sudo snap install --classic microk8s
+{{end -}}

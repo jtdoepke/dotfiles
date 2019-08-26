@@ -1,0 +1,82 @@
+{{ if eq .chezmoi.osRelease.id "ubuntu" -}}
+#!/bin/sh
+
+sudo apt-get update
+sudo apt-get install -y software-properties-common
+sudo apt-add-repository ppa:fish-shell/release-3
+
+# chrome
+# alacritty or kitty
+# neovim
+# peek
+# yubico
+
+sudo apt-get update -y
+sudo apt-get install -y \
+	asciinema \
+	audacity \
+	autoconf \
+	automake \
+	autossh \
+	build-essential \
+	bzip2 \
+	croc \
+	fish \
+	gawk \
+	gimp \
+	git \
+	git-crypt \
+	git-email \
+	git-extras \
+	git-lfs \
+	git-svn \
+	gnome-tweaks \
+	gzip \
+	httpie \
+	i3 \
+	jq \
+	magic-wormhole \
+	make \
+	mosh \
+	neovim \
+	openssh-client \
+	p7zip-full \
+	pass \
+	peek \
+	python \
+	python-pip \
+	python-virtualenv \
+	python3 \
+	python3-pip \
+	python3-virtualenv \
+	ranger \
+	rclone \
+	rsync \
+	shellcheck \
+	subversion \
+	tar \
+	tmux \
+	ufw \
+	unattended-upgrades \
+	unzip \
+	vim \
+	vlc \
+	wget \
+	xz-utils \
+	zip
+
+sudo snap install bw bitwarden spotify
+sudo snap install --classic go skype slack
+
+# Install asdf-vm
+sudo apt-get install -y \
+	automake autoconf libreadline-dev \
+	libncurses-dev libssl-dev libyaml-dev \
+	libxslt-dev libffi-dev libtool unixodbc-dev \
+	unzip curl
+if [ ! -d ~/.asdf ]; then
+	git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+fi
+cd ~/.asdf
+git checkout "$(git describe --abbrev=0 --tags)"
+{{ end -}}

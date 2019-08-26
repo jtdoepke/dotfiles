@@ -1,0 +1,10 @@
+{{ if eq .chezmoi.osRelease.id "ubuntu" -}}
+#!/bin/sh
+
+sudo snap install --classic code
+if ! grep -qF 'Increase file watches for VSCode' /etc/sysctl.conf; then
+    sudo sh -c "echo '# Increase file watches for VSCode.' >> /etc/sysctl.conf";
+    sudo sh -c "echo 'fs.inotify.max_user_watches=524288' >> /etc/sysctl.conf";
+    sudo sysctl -p;
+fi
+{{end -}}
