@@ -1,0 +1,22 @@
+{{ if eq .chezmoi.osRelease.idLike "debian" -}}
+#!/bin/sh
+sudo apt-add-repository -y ppa:yubico/stable;
+sudo apt update;
+sudo apt install -y \
+	cryptsetup \
+	dbus-user-session \
+	gpg \
+	libpam-u2f \
+	libpam-yubico \
+	pass \
+	pcsc-tools \
+	pcscd \
+	pinentry-gnome3 \
+	secure-delete \
+	signing-party \
+	yubikey-luks \
+	yubikey-manager-qt \
+	yubikey-personalization-gui \
+	yubikey-piv-manager \
+	yubioath-desktop;
+{{ end -}}
