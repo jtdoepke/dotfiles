@@ -138,16 +138,16 @@ sudo apt-get install fish
 sudo chsh -s "$(which fish)" "{{ .chezmoi.username }}"
 ## Install fisher plugins.
 fish -c '
-fisher self-update;
-fisher add 0rax/fish-bd;
-fisher add edc/bass;
-fisher add fisherman/getopts;
-fisher add fisherman/z;
-fisher add jethrokuan/fzf;
-fisher add laughedelic/pisces;
-fisher add matchai/spacefish;
-fisher add oh-my-fish/plugin-thefuck;
-fisher add spentacular/asdf-fish;
+	fisher self-update;
+	fisher add 0rax/fish-bd;
+	fisher add edc/bass;
+	fisher add fisherman/getopts;
+	fisher add fisherman/z;
+	fisher add jethrokuan/fzf;
+	fisher add laughedelic/pisces;
+	fisher add matchai/spacefish;
+	fisher add oh-my-fish/plugin-thefuck;
+	fisher add spentacular/asdf-fish;
 '
 
 {{ end -}}
