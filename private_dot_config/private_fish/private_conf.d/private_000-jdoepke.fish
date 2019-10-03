@@ -2,6 +2,7 @@
 
 # Set EDITOR
 set -x EDITOR nvim
+alias vim=nvim
 
 function __add_to_PATH -a new_path -d "Insert a dir at the beginning of PATH if not already present.";
         if not contains $new_path $PATH
