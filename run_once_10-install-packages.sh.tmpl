@@ -64,6 +64,10 @@ sudo snap install --classic \
 	skype \
 	slack
 
+# Stop gnome-keyring-daemon from managing ssh so gpg-agent can take over.
+gnome-keyring-daemon --replace -c pkcs11,secrets,gpg
+export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+
 # Install asdf-vm
 sudo apt-get install -y \
 	automake autoconf libreadline-dev \
