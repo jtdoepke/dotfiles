@@ -1,0 +1,46 @@
+
+
+# |<----   Preferably using up to 50 chars   --->|<--- Max 72 char --->|
+# <type>[(scope)][!]: (If applied, this commit will...) <subject>
+# Example: `refactor(lang)!: drop polish langauge support`
+
+
+# |<----   Try To Limit Each Line to a Maximum Of 72 Characters   ---->|
+# (Optional) Body: Explain why this change is being made
+
+
+# (Optional) Footer: Provide links or keys to any relevant tickets, articles or other resources
+#JIRA: ABC-123
+#BREAKING CHANGE: what
+#Reported-by: Name <name@example.org>
+#Co-authored-by: Name <name@example.org>
+#Signed-off-by: Name <name@example.org>
+#Tested-by: Name <name@example.org>
+#See: https://example.org/
+
+# --- COMMIT END ---
+# Type can be
+#    feat     (new feature, correlates with MINOR in semantic versioning)
+#    fix      (bug fix, correlates with PATCH in semantic versioning)
+#    refactor (refactoring code)
+#    style    (formatting, missing semi colons, etc; no code change)
+#    doc      (changes to documentation)
+#    test     (adding or refactoring tests; no production code change)
+#    version  (version bump/new release; no production code change)
+#    dbg      (Changes in debugging code/frameworks; no production code change)
+#    license  (Edits regarding licensing; no production code change)
+#    hack     (Temporary fix to make things move forward; please avoid it)
+#    WIP      (Work In Progress; for intermediate commits to keep patches reasonably sized)
+#    defaults (changes default options)
+# --------------------
+# Append a `!` to the type, or use the `BREAKING CHANGE:` footer to indicate a
+# breaking change (correlates with MAJOR in semantic versioning).
+#
+# Remember to:
+#   * Capitalize the subject line
+#   * Use the imperative mood in the subject line
+#   * Do not end the subject line with a period
+#   * Separate subject from body with a blank line
+#   * Use the body to explain what and why vs. how
+#   * Can use multiple lines with "-" or "*" for bullet points in body
+#   * Use the git-interpret-trailers format for the footer i.e. `key: value` or `key = value`.
