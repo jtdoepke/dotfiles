@@ -26,3 +26,7 @@ function sudo
 	end
 	command sudo $argv
 end
+
+# Set GOPATH
+set -x GOPATH ~
+mkdir -p "$GOPATH/src" "$GOPATH/bin" "$GOPATH/pkg"
